@@ -2,32 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
+use App\Roomtype;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
     public function index(Request $request)
     {
-        $items = Customer::all();
-        return view('customer.index', ['items' => $items]);
+        $items = Roomtype::all();
+        return view('roomtype.index', ['items' => $items]);
     }
 
     public function add(Request $request)
     {
-         return view('customer.add');
+         return view('roomtype.add');
     }
 
     public function create(Request $request)
     {
-         $this->validate($request, Customer::$rules);
-         $rental = new Customer;
+         $this->validate($request, Roomtype::$rules);
+         $rental = new Roomtype;
          $form = $request->all();
 
          unset($form['_token']);
 
          $rental->fill($form)->save();
-         return redirect('/customer');
+         return redirect('/roomtype');
      }
 
     // public function delete(Request $request)
