@@ -20,8 +20,7 @@
     <table>
         @csrf
             <tr><th>お名前: </th>
-                <td><input type="text" name="customer_name" value="{{old('customer_name')}}"></td></tr>
-
+                <td><input type="text" name="name" value="{{old('name')}}"></td></tr>
                 <tr><th>ご住所: </th>
                     <td><input type="text" name="address" value="{{old('address')}}"></td></tr>
 

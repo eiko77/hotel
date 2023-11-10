@@ -15,8 +15,8 @@
     <th>お電話番号</th>
 @foreach ($items as $item)
 <tr>
-    <td>{{$item->customer_id}}</td>
-    <td>{{$item->customer_name}}</td>
+    <td>{{$item->id}}</td>
+    <td>{{$item->name}}</td>
     <td>{{$item->address}}</td>
     <td>{{$item->telephone}}</td>
 </tr>

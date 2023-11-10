@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-protected $guarded = array('customer_id');
+protected $guarded = array('id');
 public static $rules =array(
-    'customer_name' => 'required',
+    'name' => 'required',
     'address' => 'required',  
     'telephone' => 'required',   
   );

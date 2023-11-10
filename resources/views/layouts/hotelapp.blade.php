@@ -16,14 +16,14 @@
                 letter-spacing: -4pt;
             }
             ul {
-                font-size: 12px
+                font-size: 30px
             }
             hr {
                 margin: 25px 100px;
                 border-top: 1px dashed #ddd;
             }
             .menutitle {
-                font-size: 14px;
+                font-size: 50px;
                 font-weight: bold;
                 margin: 0px;
             }
