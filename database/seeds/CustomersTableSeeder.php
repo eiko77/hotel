@@ -25,5 +25,12 @@ class CustomersTableSeeder extends Seeder
         ];
         DB::table('customers')->insert($param);
 
+        $param = [
+            'name' => '中西さきこ',
+            'address' => '奈良県橿原市',
+            'telephone' => '89-7777-6690',
+        ];
+        DB::table('customers')->insert($param);
+
     }
 }

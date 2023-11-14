@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <title>@yield('title')</title>
         <style>
             body {
@@ -16,11 +17,14 @@
                 letter-spacing: -4pt;
             }
             ul {
-                font-size: 30px
-            }
+                font-size: 30px;
+                list-style: none;
+               
+               }
             hr {
-                margin: 25px 100px;
-                border-top: 1px dashed #ddd;
+                /* margin: 25px 100px; */
+                
+                border-top: 1px solid #ddd;
             }
             .menutitle {
                 font-size: 50px;

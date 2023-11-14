@@ -19,14 +19,30 @@
 Route::get('customer','CustomerController@index');
 Route::post('customer','CustomerController@post');
 
-// 追加
+// 追加_顧客情報
 Route::get('customer/add','CustomerController@add');
 Route::post('customer/add','CustomerController@create');
 
-//ControllerのIndexメソッド呼び出し_部屋タイプ
+//Index_予約
+Route::get('reservation','ReservationController@index');
+Route::post('reservation','ReservationController@post');
+
+// 追加_予約
+Route::get('reservation/add','ReservationController@add');
+Route::post('reservation/add','ReservationController@create');
+
+//Index_予約詳細
+Route::get('reservation_detail','Reservation_detailController@index');
+Route::post('reservation_detail','Reservation_detailController@post');
+
+//Index_お部屋
+Route::get('room','RoomController@index');
+Route::post('room','RoomController@post');
+
+
+//Index_お部屋タイプ
 Route::get('roomtype','RoomtypeController@index');
 Route::post('roomtype','RoomtypeController@post');
-
 
 
 // // 削除

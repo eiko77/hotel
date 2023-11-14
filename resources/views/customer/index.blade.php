@@ -16,7 +16,7 @@
 @foreach ($items as $item)
 <tr>
     <td>{{$item->id}}</td>
-    <td>{{$item->name}}</td>
+    <td>{{$item->name}}　様</td>
     <td>{{$item->address}}</td>
     <td>{{$item->telephone}}</td>
 </tr>
@@ -26,5 +26,5 @@
 @endsection
 
 @section('footer')
-copyright 2020 tuyano
+copyright 2023　NakagaWorld
 @endsection
