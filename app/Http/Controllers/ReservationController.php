@@ -11,6 +11,16 @@ class ReservationController extends Controller
     {
         $items = Reservation::all();
         return view('reservation.index', ['items' => $items]);
+
+        //customerとつなげたい気持ちで記述
+        $hasCustomerItems = Reservation::has('customers')->get();
+        $param =['customer_items' => $hasCustomerItems];
+        return view('reservation.index',$param);
+
+        //roomtypeとつなげたい気持ちで記述
+        $hasRoomtypeItems = Reservation::has('roomtypes')->get();
+        $param =['roomtype_items' => $hasCustomerItems];
+        return view('reservation.index',$param);
     }
 
     public function add(Request $request)
@@ -21,12 +31,12 @@ class ReservationController extends Controller
     public function create(Request $request)
     {
          $this->validate($request, Reservation::$rules);
-         $rental = new Reservation;
+         $reservation = new Reservation;
          $form = $request->all();
 
          unset($form['_token']);
 
-         $rental->fill($form)->save();
+         $reservation->fill($form)->save();
          return redirect('/reservation');
      }
 

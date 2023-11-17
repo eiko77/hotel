@@ -19,7 +19,7 @@
 Route::get('customer','CustomerController@index');
 Route::post('customer','CustomerController@post');
 
-// 追加_顧客情報
+// 入力_会員登録
 Route::get('customer/add','CustomerController@add');
 Route::post('customer/add','CustomerController@create');
 
@@ -27,7 +27,7 @@ Route::post('customer/add','CustomerController@create');
 Route::get('reservation','ReservationController@index');
 Route::post('reservation','ReservationController@post');
 
-// 追加_予約
+// 入力_予約
 Route::get('reservation/add','ReservationController@add');
 Route::post('reservation/add','ReservationController@create');
 

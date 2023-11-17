@@ -12,7 +12,6 @@ class RoomController extends Controller
        
 //roomtypeとつなげたい気持ちで記述
         $hasItems = Room::has('roomtypes')->get();
-        // $noItems = Room::doesntHave('roomtypes')->get();
         $param =['items' => $hasItems];
         return view('room.index',$param);
     }

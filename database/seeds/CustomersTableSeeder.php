@@ -16,12 +16,15 @@ class CustomersTableSeeder extends Seeder
             'name' => '奈良鹿子',
             'address' => '奈良県奈良市',
             'telephone' => '12-3456-7890',
+            'mail' => 'sento@gmai.com',
         ];
+        
         DB::table('customers')->insert($param);
         $param = [
             'name' => '静岡海子',
             'address' => '静岡県浜松市',
             'telephone' => '89-5555-6690',
+            'mail' => 'unagiinu@gmai.com',
         ];
         DB::table('customers')->insert($param);
 
@@ -29,6 +32,7 @@ class CustomersTableSeeder extends Seeder
             'name' => '中西さきこ',
             'address' => '奈良県橿原市',
             'telephone' => '89-7777-6690',
+            'mail' => 'sakichan@gmai.com',
         ];
         DB::table('customers')->insert($param);
 

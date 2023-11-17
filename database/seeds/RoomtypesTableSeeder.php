@@ -14,18 +14,21 @@ class RoomtypesTableSeeder extends Seeder
     {
         $param = [
             'room_type' => 'スタンダード',
+            'room_price' => '20000',
             'possible_num' => '2',      
         ];
         DB::table('roomtypes')->insert($param);
 
         $param = [
             'room_type' => 'デラックス',
+            'room_price' => '50000',
             'possible_num' => '3',      
         ];
         DB::table('roomtypes')->insert($param);
         
         $param = [
             'room_type' => 'スイート',
+            'room_price' => '100000',
             'possible_num' => '6',      
         ];
         DB::table('roomtypes')->insert($param);

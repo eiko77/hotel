@@ -10,17 +10,22 @@
 
 <table>
     <th>ご予約ID</th>
-    <th>お客様ID</th>
+    <th>お客様名</th>
     <th>ご予約人数</th>
-    <th>チェックイン</th>
-    <th>チェックアウト</th>
+    <th>お部屋のタイプ</th>
+    <th>ご到着予定日</th>
+    <th>ご出発予定日</th>
+    <th>ご要望など</th>
 @foreach ($items as $item)
 <tr>
     <td>{{$item->id}}</td>
-    <td>{{$item->customer_id}}</td>
+    <td>{{$item->customers->name}}</td>
     <td>{{$item->num_customers}}</td>
+    {{-- <td>room</td> --}}
+    <td>{{$item->roomtypes->room_type}}</td> 
     <td>{{$item->checkin}}</td>
     <td>{{$item->checkout}}</td>
+    <td>{{$item->note}}</td>
 </tr>
 @endforeach        
 </table>

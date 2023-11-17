@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+
 class RoomsTableSeeder extends Seeder
 {
     /**
@@ -35,7 +36,7 @@ class RoomsTableSeeder extends Seeder
       
         $param = [
             'roomtype_id' => '3',
-            'room_no' => '303',
+            'room_no' => '501',
         ];
         DB::table('rooms')->insert($param);
 

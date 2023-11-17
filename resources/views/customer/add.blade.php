@@ -3,7 +3,7 @@
 
 @section('menubar')
 @parent
-新規お客様 登録
+会員登録画面
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
     </ul>
 </div>
 @endif
-<form action="/hotel/customer/add" method="post">
+<form action="/customer/add" method="post">
     <table>
         @csrf
             <tr><th>お名前: </th>
@@ -26,8 +26,8 @@
 
                 <tr><th>お電話番号: </th>
                         <td><input type="text" name="telephone" value="{{old('telephone')}}"></td></tr>
-
-                    
+                        <tr><th>メールアドレス: </th>
+                            <td><input type="text" name="mail" value="{{old('mail')}}"></td></tr>
                     <tr><th></th>
                         <td><input type="submit" value="登録"></td></tr>
         </table>
@@ -35,6 +35,6 @@
 @endsection
 
 @section('footer')
-copyright 2020 tuyano
+copyright 2023　NakagaWorld
 @endsection
 

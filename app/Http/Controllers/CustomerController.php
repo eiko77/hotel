@@ -9,8 +9,11 @@ class CustomerController extends Controller
 {
     public function index(Request $request)
     {
+        // $items = Customer::all();
+        //reservationとつなげたい気持ちで記述
         $items = Customer::all();
-        return view('customer.index', ['items' => $items]);
+        $param = ['items' => $items];
+        return view('customer.index', $param);
     }
 
     public function add(Request $request)
@@ -21,12 +24,10 @@ class CustomerController extends Controller
     public function create(Request $request)
     {
          $this->validate($request, Customer::$rules);
-         $rental = new Customer;
+         $customer = new Customer;
          $form = $request->all();
-
          unset($form['_token']);
-
-         $rental->fill($form)->save();
+         $customer->fill($form)->save();
          return redirect('/customer');
      }
 

@@ -10,6 +10,10 @@ class Reservation_detailController extends Controller
     public function index(Request $request)
     {
         $items = Reservation_detail::all();
-        return view('reservation_detail.index', ['items' => $items]);
+
+ //reservationとつなげたい気持ちで記述
+ $hasItems = Reservation_detail::has('reservations')->get();
+ $param =['items' => $hasItems];
+ return view('reservation_detail.index',$param);
     }
 }
