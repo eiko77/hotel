@@ -20,6 +20,7 @@ class CreateReservationsTable extends Migration
             $table->string('name');
             $table->integer('num_customers');
             $table->string('roomtype');
+            $table->integer('num_rooms');
             $table->date('checkin');
             $table->date('checkout');
             $table->string('note');

@@ -13,6 +13,7 @@
     <th>お客様名</th>
     <th>ご予約人数</th>
     <th>お部屋のタイプ</th>
+    <th>お部屋の数</th>
     <th>ご到着予定日</th>
     <th>ご出発予定日</th>
     <th>ご要望など</th>
@@ -23,6 +24,7 @@
     <td>{{$item->num_customers}}</td>
     {{-- <td>room</td> --}}
     <td>{{$item->roomtypes->room_type}}</td> 
+    <td>{{$item->num_rooms}}</td>
     <td>{{$item->checkin}}</td>
     <td>{{$item->checkout}}</td>
     <td>{{$item->note}}</td>

@@ -56,3 +56,7 @@ Route::post('roomtype','RoomtypeController@post');
 // Route::post('rental/find','RentalController@search');
 // //部分検索
 // Route::get('rental/show','RentalController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
