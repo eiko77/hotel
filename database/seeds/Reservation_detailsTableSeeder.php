@@ -13,12 +13,16 @@ class Reservation_detailsTableSeeder extends Seeder
     public function run()
     {
         $param = [
+            'customer_id' => '1',
             'reservation_id' => '1',
-            'room_id' => '2',
-            'accom_date' => '2023-11-01',
-            'accom_fee' => '50000',
+            'room_id' => '1',
+            'roomtype_id' => '1',
+            'num_customers' => '1',
+            'num_rooms' => '1',
+            'room_no' => '201',
+            'room_price' => '20000',
+            'total_amount' => '20000',
         ];
         DB::table('reservation_details')->insert($param);
-        }
-        }
-
+    }
+}

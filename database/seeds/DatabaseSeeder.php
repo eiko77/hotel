@@ -1,6 +1,6 @@
 <?php
 
-use App\Roomtypes;
+use App\Reservation_detail;
 use Illuminate\Database\Seeder;
 
 
@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(ReservationsTableSeeder::class);
+        $this->call(Reservation_detailsTableSeeder::class);
     }
 }
