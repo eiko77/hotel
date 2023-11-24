@@ -4,13 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
     public function index(Request $request)
-    {
-        $items = Reservation::all();
-        return view('reservation.index', ['items' => $items]);
+    {  
+         //下記２行を消すとエラーになるから注意
+        $ReservationItems = Reservation::all();
+        return view('reservation.index', ['items' => $ReservationItems]);
+
+        //入力後　表示させたい　idつながり　てst
+        if(isset($request->id)) {
+            $param=['id' => $request->id];
+            $ReservationItems= DB::select('select * from reservations where id = :id',$param);
+        } else {
+            $ReservationItems = DB::select('select * from reservations');
+        }
+        return view('reservation.index', ['items' => $ReservationItems]);
 
         //customerとつなげたい気持ちで記述
         $hasCustomerItems = Reservation::has('customers')->get();
@@ -19,8 +30,9 @@ class ReservationController extends Controller
 
         //roomtypeとつなげたい気持ちで記述
         $hasRoomtypeItems = Reservation::has('roomtypes')->get();
-        $param =['roomtype_items' => $hasCustomerItems];
+        $param =['roomtype_items' => $hasRoomtypeItems];
         return view('reservation.index',$param);
+
     }
 
     public function add(Request $request)
@@ -33,12 +45,34 @@ class ReservationController extends Controller
          $this->validate($request, Reservation::$rules);
          $reservation = new Reservation;
          $form = $request->all();
-
          unset($form['_token']);
-
+         //カスタマーID roomtypeの設定をかく
          $reservation->fill($form)->save();
-         return redirect('/reservation');
-     }
+         return redirect('/customer.index');
+
+        // $param = [
+        //     // 'customers_id'=> ,
+        //     'num_customers'=> $request->num_customers,
+        //     'num_rooms' =>$request->num_rooms,
+        //     'roomtype_id' =>$request->roomtype_id,
+        //     'checkin' =>$request->checkin,
+        //     'checkout' =>$request->checkout,
+        //     'note' =>$request->note,
+        // ];
+        // DB::insert('insrt into reservations(num_customers,num_rooms,roomtype_id,checkin,checkout,note) values(num_customers,num_rooms,roomtype_id,checkin,checkout,note)',$param);
+
+        // return redirect('/reservation');
+    }
+}
+        //  $this->validate($request, Reservation::$rules);
+        //  $reservation = new Reservation;
+        //  $form = $request->all();
+
+        //  unset($form['_token']);
+
+        //  $reservation->fill($form)->save();
+        //  return redirect('/reservation');
+     
 
     // public function delete(Request $request)
     // {
@@ -92,4 +126,3 @@ class ReservationController extends Controller
     //     ->get();
     //     return view('rental.show', ['items' => $items]);
     // }
-}

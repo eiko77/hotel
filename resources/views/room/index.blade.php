@@ -17,7 +17,6 @@
         @foreach ($items as $item)
             <tr>
                 <td>{{ $item->id }}</td>
-                {{-- 外部キーデータ取得分--}}
                 <td>{{ $item->roomtypes->room_type }}</td>
                 <td>{{ $item->roomtypes->room_price }}</td>
                 <td>{{ $item->roomtypes->possible_num}}名/1部屋</td>

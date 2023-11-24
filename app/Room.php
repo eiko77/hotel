@@ -29,4 +29,9 @@ $this->possible_num ;
 
 }
 
+public function reservation_details() 
+    {
+        return $this->hasMany('App\Reservation_detail');
+    }
+
 }

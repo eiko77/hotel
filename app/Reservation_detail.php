@@ -6,26 +6,67 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation_detail extends Model
 {
-     // addエラー：入力画面を作りたいとき考える（後回し）
-    // protected $guarded = array('id');
-    // public static $rules =array(
-    //     'reservation_id' => 'required',
-    //     'room_id' => 'required',  
-    //     'accom_date' => 'required', 
-    //     'accom_fee' => 'required',   
-    // );
+  //reservationとつながりたい
 
-    //主キー側　設定（超ムズイ）
 public function reservations()
 {
-return $this->belongsTo('App\reservation','customer_id','id');
+    return $this->belongsTo('App\Reservation', 'reservation_id', 'id');
 }
-public function getData()
+
+
+public function getReservationData()
+{
+return 
+$this->reservation_id .  
+$this->roomtype_id .
+$this->customer_id .
+$this->num_customers .
+$this->num_rooms .
+$this->checkin .
+$this->checkout .
+$this->note ;
+}
+
+//customerとつながりたい
+//public function customers()
+//{
+//return $this->belongsTo('App\Customer','customer_id','id');
+//}
+
+//public function getCustomerData()
+//{
+//return 
+//$this->id .  
+//$this->name .  
+//$this->address . 
+//$this->telephone .
+//$this->mail;
+
+
+//roomとつながりたい
+public function rooms()
+{
+return $this->belongsTo('App\Room','room_id','id');
+}
+public function getRoomData()
 {
 return 
 $this->id .  
-$this->num_customers .
-$this->checkin .
-$this->checkout ;
+$this->room_no ;
 }
+
+//roomtypeとつながりたい
+public function roomtypes()
+{
+return $this->belongsTo('App\Roomtype','roomtype_id','id');
+}
+public function getRoomtypeData()
+{
+return 
+$this->id .  
+$this->room_type . 
+$this->room_price .
+$this->possible_num ;
+}
+
 }

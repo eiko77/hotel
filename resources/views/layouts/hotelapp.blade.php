@@ -58,6 +58,21 @@
                 background-color: white
 
             }
+
+            table.row_detail th,table.row_detail td{
+            
+            display:frex;
+            
+            width: 800px;
+            
+           
+              }
+           table.row_detail th{
+               background-color: #999;
+               width: 20px;
+               height: 50px;
+             
+           }
         </style>
     </head>
     <body>

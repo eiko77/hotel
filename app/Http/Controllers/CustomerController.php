@@ -28,8 +28,12 @@ class CustomerController extends Controller
          $form = $request->all();
          unset($form['_token']);
          $customer->fill($form)->save();
-         return redirect('/customer');
+         return redirect('/reservation/add');
      }
+
+    //  public function ses_get(Request $request){
+    //     $sesdata =$request->session()->get('');
+    //  }
 
     // public function delete(Request $request)
     // {

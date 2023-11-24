@@ -22,9 +22,8 @@
     <td>{{$item->id}}</td>
     <td>{{$item->customers->name}}</td>
     <td>{{$item->num_customers}}</td>
-    {{-- <td>room</td> --}}
-    <td>{{$item->roomtypes->room_type}}</td> 
     <td>{{$item->num_rooms}}</td>
+    <td>{{$item->roomtypes->room_type}}</td> 
     <td>{{$item->checkin}}</td>
     <td>{{$item->checkout}}</td>
     <td>{{$item->note}}</td>

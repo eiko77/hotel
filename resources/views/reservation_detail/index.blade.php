@@ -8,36 +8,65 @@
 
 @section('content')
 
-<table>
-    <th>ご予約詳細No.</th>
-    <th>ご予約ID</th>
-    <th>お客様名</th>
-    {{-- <th>お部屋番号</th> --}}
-    {{-- <th>お部屋タイプ</th> --}}
-    <th>ご宿泊日</th>
-    <th>ご出発日</th>
-    <th>お部屋のタイプ</th>
-    <th>留意事項</th>
-    <th>宿泊人数</th>
-    <th>部屋の数</th>
-    <th>部屋番号</th>
-    <th>料金/おひとり様</th>
-    <th>ご請求金額</th>
-   
 @foreach ($items as $item)
-<tr>
-    <td>{{$item->id}}</td>
-    {{-- 外部キーデータ1件取得--}}
-    <td>{{$item->reservations->reservation_id}}</td>
-    <td>{{$item->reservations->name}}</td>
-    {{-- <td>{{$item->room_id}}</td> --}}
+
+<table class="row_detail" >
+   <br> <p>No. {{$item->id}}</p>
+    <tr>
+        <th>ご予約ID</th>
+        <th>お名前</th>
+        <th>ご住所</th>
+        <th>お電話番号</th>
+    </tr>
+    <tr>
+        <td>{{$item->reservation_id}}</td>
+        <td>{{$item->reservations->customers->name}} 様</td>
+        <td>{{$item->reservations->customers->address}}</td>
+        <td>{{$item->reservations->customers->telephone}}</td>
+    </tr>
+    <tr>
+        <th>お部屋の数</th>
+        <th>お部屋タイプ</th>
+        <th>お部屋番号 </th>
+        <th>ご宿泊人数</th>
+    </tr>
+    <tr><td>{{$item->reservations->num_rooms}}室</td>
+        <td>{{$item->reservations->roomtypes->room_type}}</td>
+        <td>{{$item->rooms->room_no}}号室</td>
+        <td>{{$item->reservations->num_customers}}名</td>   
+    </tr>
+    <tr>
+         <th>チェックイン</th> 
+         <th>チェックアウト</th>
+         <th>ご宿泊料金</th>
+         <th>その他の料金</th>
+    </tr>    
+    <tr>
+        <td>{{$item->reservations->checkin}}</td>
+        <td>{{$item->reservations->checkout}}</td>
+        <td>{{$item->hotel_fee}}円/税抜</td>
+        <td>{{$item->other_charge}}円/税抜</td>
+    </tr> 
+    <tr></tr>
+    <th></th>
+    <th>ご請求料金</th>
+    <th>内消費税</th>
+    <th>内訳詳細</th>
     
-    {{-- <td>{{$item->room_type}}</td> --}}
-    <td>{{$item->accom_date}}</td>
-    <td>{{$item->accom_fee}}円</td>
 </tr>
-@endforeach        
+<tr>
+    <td></td>
+    <td >計  {{$item->total_amount}}円</td>
+    <td>{{$item->tax}}円　［消費税率　10%］</td>
+    <td>{{$item->details}}</td>
+    
+</tr>
+<hr>
+
+    
+@endforeach              
 </table>
+
 
 @endsection
 
