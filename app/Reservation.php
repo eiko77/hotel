@@ -14,18 +14,19 @@ class Reservation extends Model
         'roomtype_id' => 'required',    
         'checkin' => 'required', 
         'checkout' => 'required', 
-        'note' => 'required',
+        'note' => '',
     );
 
     public function getReservationData()
 {
     return 
     $this->id . 
-    $this->name .  
+    $this->customer_id .  
     $this->num_customers.
     $this->num_rooms.
     $this->checkin.
-    $this->checkout ;
+    $this->checkout.
+    $this->note ;
 }
 
 //customerとつながる
@@ -64,5 +65,13 @@ public function reservation_details()
 {
     return $this->hasMany('App\Reservation_detail', 'reservation_id', 'id');
 }
+
+// public function reservation_detailsData()
+// {
+//     return $this->id . 
+//     $this->room_type .  
+//     $this->room_price .  
+//     $this->possible_num ;
+// }
 
 }

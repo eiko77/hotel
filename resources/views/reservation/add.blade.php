@@ -22,17 +22,16 @@
         <table>
             <table>
                 @csrf
-                <tr>
-                    <th></th>
-                    <td><input type="hidden" name="customer_id" value="customer_id">名様</td>
-                </tr>
+
+                <input type="hidden" name="customer_id" value="1">
+                
                 <tr>
                     <th>ご宿泊人数: </th>
-                    <td><input type="number" name="num_customers" value="{{ old('num_customers') }}">名様</td>
+                    <td><input type="number" name="num_customers" value="{{ old('num_customers') }}" min="0">名様</td>
                 </tr>
                 <tr>
                     <th>お部屋の数: </th>
-                    <td><input type="number" name="num_rooms" value="{{ old('num_rooms') }}">室</td>
+                    <td><input type="number" name="num_rooms" value="{{ old('num_rooms') }}" min="0">室</td>
                 </tr>
                 <tr>
                     <th>お部屋のタイプ: </th>
@@ -52,7 +51,7 @@
                 </tr>
                 <tr>
                     <th>ご要望など: </th>
-                    <td><input type="text" name="note" value="{{ old('note') }}"></td>
+                    <td><input type="text" name="note" value=""></td>
                 </tr>
                 <tr>
                     <th></th>

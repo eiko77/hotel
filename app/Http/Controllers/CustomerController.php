@@ -4,16 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
     public function index(Request $request)
     {
-        // $items = Customer::all();
-        //reservationとつなげたい気持ちで記述
-        $items = Customer::all();
-        $param = ['items' => $items];
+    
+        //認証機能の試み
+        $user =Auth::user();
+        $sort =$request->sort;
+
+        $items = Customer::orderBy($sort,'asc')->simplePaginate(5);
+        $param = ['items' => $items,'sort=>$sort','user'=>$user];
         return view('customer.index', $param);
+        // //OLD
+        // $items = Customer::all();
+        // $param = ['items' => $items];
+        // return view('customer.index', $param);
     }
 
     public function add(Request $request)

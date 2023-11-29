@@ -8,6 +8,14 @@
 
 @section('content')
 
+@if(Auth::check())
+<p>USER:{{$user->name . '(' . $user->email . ')'}}</p>
+@else
+<P>※ログインしていません(<a href="/login">ログイン</a>
+    <a href="/register">登録</a>)</p>
+    
+@endif
+
 <table>
     <th>お客様ID</th>
     <th>お名前</th>

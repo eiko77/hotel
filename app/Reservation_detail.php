@@ -14,7 +14,7 @@ public function reservations()
 }
 
 
-public function getReservationData()
+public function getReservationsData()
 {
 return 
 $this->reservation_id .  
