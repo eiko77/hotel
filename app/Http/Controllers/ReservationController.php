@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
@@ -23,20 +25,23 @@ class ReservationController extends Controller
         }
         return view('reservation.index', ['items' => $ReservationItems]);
 
-        //customerとつなげたい気持ちで記述
-        $hasCustomerItems = Reservation::has('customers')->get();
-        $param = ['customer_items' => $hasCustomerItems];
-        return view('reservation.index', $param);
+        // //customerとつなげたい気持ちで記述
+        // $hasCustomerItems = Reservation::has('customers')->get();
+        // $param = ['customer_items' => $hasCustomerItems];
+        // return view('reservation.index', $param);
 
-        //roomtypeとつなげたい気持ちで記述
-        $hasRoomtypeItems = Reservation::has('roomtypes')->get();
-        $param = ['roomtype_items' => $hasRoomtypeItems];
-        return view('reservation.index', $param);
+        // //roomtypeとつなげたい気持ちで記述
+        // $hasRoomtypeItems = Reservation::has('roomtypes')->get();
+        // $param = ['roomtype_items' => $hasRoomtypeItems];
+        // return view('reservation.index', $param);
     }
 
     public function add(Request $request)
     {
-        return view('reservation.add');
+        $user=Auth::user();
+        $customer=Customer::where('name',$user->name)->first();
+
+        return view('reservation.add',['id'=>$customer->id]);
     }
 
     public function create(Request $request)

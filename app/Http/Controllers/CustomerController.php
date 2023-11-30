@@ -13,10 +13,9 @@ class CustomerController extends Controller
     
         //認証機能の試み
         $user =Auth::user();
-        $sort =$request->sort;
 
-        $items = Customer::orderBy($sort,'asc')->simplePaginate(5);
-        $param = ['items' => $items,'sort=>$sort','user'=>$user];
+        $items = Customer::where('name',$user->name)->first();
+        $param = ['item' => $items,'user'=>$user];
         return view('customer.index', $param);
         // //OLD
         // $items = Customer::all();

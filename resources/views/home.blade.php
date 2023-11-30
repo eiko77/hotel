@@ -16,6 +16,7 @@
 
                     You are logged in!
                 </div>
+               <a href="reservation/add"><button> ホテル予約</button></a>
             </div>
         </div>
     </div>

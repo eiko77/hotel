@@ -22,7 +22,7 @@
     <th>ご住所</th>
     <th>お電話番号</th>
     <th>メールアドレス</th>
-@foreach ($items as $item)
+{{-- @foreach ($items as $item) --}}
 <tr>
     <td>{{$item->id}}</td>
     <td>{{$item->name}}　様</td>
@@ -30,7 +30,7 @@
     <td>{{$item->telephone}}</td>
     <td>{{$item->mail}}</td>
 </tr>
-@endforeach        
+{{-- @endforeach         --}}
 </table>
 
 @endsection

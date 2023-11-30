@@ -23,7 +23,7 @@
             <table>
                 @csrf
 
-                <input type="hidden" name="customer_id" value="1">
+                <input type="hidden" name="customer_id" value="{{$id}}">
                 
                 <tr>
                     <th>ご宿泊人数: </th>
