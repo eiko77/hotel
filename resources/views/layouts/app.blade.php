@@ -19,6 +19,30 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+<style>
+    .card-header {
+        background-color: #dbe4cf;
+        font-size: 18px;
+    }
+
+    .card-body{
+                font-size: 15px;
+            }
+
+    .container2 {
+        display: flex;
+    }
+
+    .container2 div{
+        margin-right: 20px;
+    }
+
+    .logo img {
+            width: 150px;  
+            }
+    
+</style>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -51,7 +75,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} 様<span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

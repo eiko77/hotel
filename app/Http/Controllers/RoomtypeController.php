@@ -8,16 +8,21 @@ class RoomtypeController extends Controller
 {
     public function index(Request $request)
     {
+          // 全てのRoomtypeアイテムを読み込む
         $items = Roomtype::all();
 
-        //roomとつなげたい気持ちで記述
-        $hasItems = Roomtype::has('rooms')->get();
-        $param =['items' => $hasItems];
-        return view('roomtype.index',$param);
+        $hasRoomItems = Roomtype::has('rooms')->get();
 
-        //reserveとつなげたい気持ちで記述 11/17 試行
-        $hasReserveItems = Roomtype::has('reserves')->get();
-        $param =['items' => $hasReserveItems];
+        $hasReservationItems = Roomtype::has('reservations')->get();
+
+        
+        $param =[
+            'items' => $items,
+            'room_items' => 
+            $hasRoomItems,
+            'reservation_items' => $hasReservationItems,
+
+        ];
         return view('roomtype.index',$param);
     
     }

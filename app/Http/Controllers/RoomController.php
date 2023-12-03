@@ -10,9 +10,15 @@ class RoomController extends Controller
     {
         $items = Room::all();
        
-//roomtypeとつなげたい気持ちで記述
-        $hasItems = Room::has('roomtypes')->get();
-        $param =['items' => $hasItems];
-        return view('room.index',$param);
+// Roomに関連するRoomtypeアイテムを読み込む
+        $hasRoomtypeItems = Room::has('roomtypes')->get();
+
+        $params =[
+            'items' => $items,
+
+            'roomtype_items' => $hasRoomtypeItems,
+        ];
+        return view
+        ('room.index',$params);
     }
 }

@@ -10,18 +10,30 @@ class CustomerController extends Controller
 {
     public function index(Request $request)
     {
+     // 管理者画面からのアクセスならすべて表示
     
-        //認証機能の試み
-        $user =Auth::user();
 
+
+     // ユーザーがログインしているか確認
+     if (Auth::check()) {
+        $user =Auth::user();
+        // $userが存在し、'name'プロパティを持っていることを確認
+        if ($user && $user->name) {
         $items = Customer::where('name',$user->name)->first();
         $param = ['item' => $items,'user'=>$user];
         return view('customer.index', $param);
-        // //OLD
-        // $items = Customer::all();
-        // $param = ['items' => $items];
-        // return view('customer.index', $param);
+        } else {
+        // ユーザーが存在しているが名前がない場合の処理
+        $errorMessage = "ユーザー名が見つかりませんでした。";
+        return view('error')->with('message', $errorMessage);
     }
+} else {
+    // ユーザーがログインしていない場合の処理
+    $errorMessage = "ログインしてください。";
+    return view('error')->with('message', $errorMessage);
+}
+}
+
 
     public function add(Request $request)
     {
@@ -38,6 +50,15 @@ class CustomerController extends Controller
          return redirect('/reservation/add');
      }
 
+     public function list(Request $request)
+{
+  # テーブルのレコードを全件取得
+  $data = Customer::all();
+  # data連想配列に代入&Viewファイルをall.blade.phpに指定
+  return view('all', [ 'message' => 'お客様リスト' ,'data' => $data]);
+}
+
+     
     //  public function ses_get(Request $request){
     //     $sesdata =$request->session()->get('');
     //  }

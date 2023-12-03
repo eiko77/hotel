@@ -40,8 +40,11 @@ class ReservationController extends Controller
     {
         $user=Auth::user();
         $customer=Customer::where('name',$user->name)->first();
-
         return view('reservation.add',['id'=>$customer->id]);
+        //砂原リーダーの３行
+        //$user=Auth::user();
+        //$customer=Customer::where('name',$user->name)->first();
+        //return view('reservation.add',['id'=>$customer->id]);
     }
 
     public function create(Request $request)

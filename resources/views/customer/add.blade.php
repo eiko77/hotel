@@ -2,6 +2,9 @@
 @section('title','Customer.Add')
 
 @section('menubar')
+<div class="logo">
+    <img src="{{ url('img/logo_gr.png') }}" alt="KIKI SHIRETOKO">
+</div>
 @parent
 会員登録画面
 @endsection
@@ -33,6 +36,8 @@
         </table>
 </form>
 @endsection
+
+<a href="/" class=to_top>Topページへ戻る</a>
 
 @section('footer')
 copyright 2023　NakagaWorld

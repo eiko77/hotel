@@ -10,7 +10,7 @@
     @if (count($errors) > 0)
         <div>
             <ul>
-                @foreach ($errors->all() as $error)
+                @foreach ($errors->all() as $error)。
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
@@ -55,13 +55,13 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <td><input type="submit" value="確定"></td>
+                    <td><input type="submit" value="確定" type="button" class="btn btn-success btn-md"></td>
                 </tr>
-
-
             </table>
-
         @endsection
+
+        <a href="/" class=to_top>Topページへ戻る</a>
+        <p>ご予約時には会員登録と会員ページログインが必要です。</p>
 
         @section('footer')
             copyright 2023　NakagaWorld

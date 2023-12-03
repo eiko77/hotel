@@ -2,6 +2,9 @@
 @section('title','Customer.index')
 
 @section('menubar')
+<div class="logo">
+    <img src="{{ url('img/logo_gr.png') }}" alt="KIKI SHIRETOKO">
+</div>
 @parent
 お客様情報
 @endsection
@@ -9,6 +12,9 @@
 @section('content')
 
 @if(Auth::check())
+
+
+
 <p>USER:{{$user->name . '(' . $user->email . ')'}}</p>
 @else
 <P>※ログインしていません(<a href="/login">ログイン</a>
@@ -35,6 +41,7 @@
 
 @endsection
 
+<a href="/home" class=to_top>前のページへ戻る</a>
 @section('footer')
 copyright 2023　NakagaWorld
 @endsection

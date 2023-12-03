@@ -17,7 +17,7 @@ public function reservations()
 public function getReservationsData()
 {
 return 
-$this->reservation_id .  
+$this->id .  
 $this->roomtype_id .
 $this->customer_id .
 $this->num_customers .
@@ -26,22 +26,6 @@ $this->checkin .
 $this->checkout .
 $this->note ;
 }
-
-//customerとつながりたい
-//public function customers()
-//{
-//return $this->belongsTo('App\Customer','customer_id','id');
-//}
-
-//public function getCustomerData()
-//{
-//return 
-//$this->id .  
-//$this->name .  
-//$this->address . 
-//$this->telephone .
-//$this->mail;
-
 
 //roomとつながりたい
 public function rooms()
@@ -60,6 +44,7 @@ public function roomtypes()
 {
 return $this->belongsTo('App\Roomtype','roomtype_id','id');
 }
+
 public function getRoomtypeData()
 {
 return 

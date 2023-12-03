@@ -2,68 +2,53 @@
 @section('title','Reservation_detail.index')
 
 @section('menubar')
+<div class="logo">
+    <img src="{{ url('img/logo_gr.png') }}" alt="KIKI SHIRETOKO">
+</div>
 @parent
+
 ご予約詳細
 @endsection
 
 @section('content')
 
-@foreach ($items as $item)
+@foreach ($items as $items)
 
-<table class="row_detail" >
-   <br> <p>No. {{$item->id}}</p>
-    <tr>
-        <th>ご予約ID</th>
-        <th>お名前</th>
-        <th>ご住所</th>
-        <th>お電話番号</th>
+<table class="table table-bordered" >
+ <p>No. {{$items->id}}</p>
+
+        <th scope="col">ご予約ID</th> <td>{{$items->reservation_id}}</td>
+    </tr> <tr>
+        <th scope="col">お名前</th> <td>{{$items->reservations->customers->name}} 様</td>
+    </tr> <tr>
+        <th scope="col">ご住所</th>  <td>{{$items->reservations->customers->address}}</td>
+    </tr> <tr>
+        <th scope="col">お電話番号</th> <td>{{$items->reservations->customers->telephone}}</td>
+    </tr> <tr>
+
+    <tr><th>ご宿泊人数</th><td>{{$items->reservations->num_customers}}名</td>  
+    </tr> <tr>
+        <th>お部屋の数</th> <td>{{$items->reservations->num_rooms}}室</td>
+    </tr> <tr>
+        <th>お部屋タイプ</th> <td>{{$items->reservations->roomtypes->room_type}}</td>
+    </tr> <tr>   
+        <th>チェックイン</th>  <td>{{$items->reservations->checkin}}</td>
+    </tr> <tr>  
+        <th>チェックアウト</th>  <td>{{$items->reservations->checkout}}</td> 
+    </tr>
+    <th><td></td></th>
+    <tr>  
+        <th>お部屋番号 </th>  
+        <td>{{$items->rooms->room_no}}号室</td>
     </tr>
     <tr>
-        <td>{{$item->reservation_id}}</td>
-        <td>{{$item->reservations->customers->name}} 様</td>
-        <td>{{$item->reservations->customers->address}}</td>
-        <td>{{$item->reservations->customers->telephone}}</td>
-    </tr>
-    <tr>
-        <th>お部屋の数</th>
-        <th>お部屋タイプ</th>
-        <th>お部屋番号 </th>
-        <th>ご宿泊人数</th>
-    </tr>
-    <tr><td>{{$item->reservations->num_rooms}}室</td>
-        <td>{{$item->reservations->roomtypes->room_type}}</td>
-        <td>{{$item->rooms->room_no}}号室</td>
-        <td>{{$item->reservations->num_customers}}名</td>   
-    </tr>
-    <tr>
-         <th>チェックイン</th> 
-         <th>チェックアウト</th>
-         <th>ご宿泊料金</th>
-         <th>その他の料金</th>
+         <th>ご宿泊料金</th> <td>{{$items->hotel_fee}}円/税抜</td>
+         <th>その他の料金</th>  <td>{{$items->other_charge}}円/税抜</td><th>内訳詳細</th><td>{{$items->details}}</td>
     </tr>    
-    <tr>
-        <td>{{$item->reservations->checkin}}</td>
-        <td>{{$item->reservations->checkout}}</td>
-        <td>{{$item->hotel_fee}}円/税抜</td>
-        <td>{{$item->other_charge}}円/税抜</td>
-    </tr> 
-    <tr></tr>
-    <th></th>
-    <th>ご請求料金</th>
-    <th>内消費税</th>
-    <th>内訳詳細</th>
-    
-</tr>
-<tr>
-    <td></td>
-    <td >計  {{$item->total_amount}}円</td>
-    <td>{{$item->tax}}円　［消費税率　10%］</td>
-    <td>{{$item->details}}</td>
-    
+<tr><th>ご請求料金</th> <td >計  {{$items->total_amount}}円</td>
+    <th>内消費税</th> <td>{{$items->tax}}円　［消費税率　10%］</td>
 </tr>
 <hr>
-
-    
 @endforeach              
 </table>
 

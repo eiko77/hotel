@@ -7,6 +7,7 @@ class CustomersTableSeeder extends Seeder
 {
     public function run()
     {
+        //factorises適用例
         $faker = \Faker\Factory::create('ja_JP');
         for ($i = 0; $i < 10; $i++){
         $param = [

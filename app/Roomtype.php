@@ -12,13 +12,12 @@ class Roomtype extends Model
         
     }
     
-    public function getRoomData()
+    public function getRoomDat()
     {
-        
         return $this->id . $this->roomtype_id .  
         $this->room_price .  
         $this->room_no ;
-}
+    }
 
 public function reservations() 
     {
@@ -27,26 +26,23 @@ public function reservations()
     }
 
     
-    public function getReservationData()
+   public function getReservationData()
     {
-        
-        // return $this->id . 
-        // $this->roomtype_id .  
-        // $this->room_price .  
-        // $this->room_no ;
-        // return $this->id .  
-        // $this->num_customers .  
-        // $this->checkin.
-        // $this->checkout.
-        // $this->note
-        //  ;
+         return $this->id . 
+        $this->roomtype_id .  
+         $this->room_price .  
+        $this->room_no ;
+        return $this->id .  
+        $this->num_customers .  
+        $this->checkin.
+         $this->checkout.
+        $this->note
+         ;
 }
 
 public function reservation_details() 
     {
         return $this->hasMany('App\Reservation_detail');
     }
-
-
 
 }

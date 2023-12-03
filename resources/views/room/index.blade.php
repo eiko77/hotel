@@ -1,6 +1,9 @@
 @extends('layouts.hotelapp')
 @section('title', 'Room.index')
 @section('menubar')
+<div class="logo">
+    <img src="{{ url('img/logo_gr.png') }}" alt="KIKI SHIRETOKO">
+</div>
     @parent
     お部屋一覧
 @endsection

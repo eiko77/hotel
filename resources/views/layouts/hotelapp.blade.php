@@ -1,6 +1,8 @@
 <html>
     <head>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}" defer></script>
         <title>@yield('title')</title>
         <style>
             body {
@@ -9,12 +11,17 @@
                 margin: 5px;
                 background-color: #f2f5ee
             }
+
             h1 {
                 font-size: 50px;
                 text-align: right;
                 color: #f6f6f6;
                 margin: -20px 0px -30px 0px;
                 letter-spacing: -4pt;
+            }
+
+            h3 {
+                font-size: 20px;
             }
             ul {
                 font-size: 30px;
@@ -34,6 +41,10 @@
             .content {
                 margin: 10px;
             }
+            .card-body {
+                font-size: 15px;
+                
+            }
             .footer {
                 text-align: right;
                 font-size: 10px;
@@ -41,38 +52,37 @@
                 border-bottom: solid 1px #ccc;
                 color: #ccc;
             }
+           
             p {
-                font-size: 15px
+                font-size: 15px;
             }
 
-            th {
-              background-color: #999; 
-             color:fff;
-             padding: 10px;
+            th{
+                background-color: #c1daae;
+                padding: 10px;
             }
 
-            td {
+            td{
                 border: solid 1px #aaa;
-                color: #999;
                 padding: 5px 10px;
                 background-color: white
-
             }
 
-            table.row_detail th,table.row_detail td{
             
-            display:frex;
-            
-            width: 800px;
-            
-           
+              .to_top{
+               font-size: 15px;
               }
-           table.row_detail th{
-               background-color: #999;
-               width: 20px;
-               height: 50px;
-             
-           }
+
+              .logo img {
+            width: 120px;  
+            }
+
+            .msg{
+                margin-top: 20px;
+                margin-left: 25px;
+                font-size: 15px;
+            }
+          
         </style>
     </head>
     <body>
