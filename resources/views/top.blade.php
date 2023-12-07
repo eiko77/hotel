@@ -3,6 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{-- //Bootstrap 開始--}}
+        {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script> --}}
+        {{-- //Bootstrap ここまで--}}
 
         <title>KIKI</title>
 
@@ -95,12 +105,18 @@
                 justify-content: space-around;
             }
             .btn {         
-                opacity: 1;
+             
                 border:1px solid darkgray;
                 border-radius: 6px;
                 color:darkgreen;
-                width: 120px;
+                width: 100px;
                 height: 35px;
+                font-size: 13px;
+                
+            }
+
+            button {
+                
             }
        
         </style>
@@ -143,13 +159,13 @@
                     <a href="login/"><button 
                             type="button" class="btn btn-success">ホテルご予約</button></a>
                     <a href="eat/"><button 
-                        type="button" class="btn btn btn-success">お食事</button></a>
+                        type="button" class="btn  btn-success">お食事</button></a>
                     <a href="roomtype"><button 
-                        type="button" class="btn btn btn-success">お部屋料金</button></a>
+                        type="button" class="btn  btn-success">お部屋料金</button></a>
                     <a href="https://blog.laravel.com"><button 
-                        type="button" class="btn btn btn-success">お知らせ（工事中）</button></a>
+                        type="button" class="btn  btn-success">お知らせ</button></a>
                     <a href="https://nova.laravel.com"><button 
-                        type="button" class="btn btn btn-success">アクセス（工事中）</button></a>
+                        type="button" class="btn  btn-success">アクセス</button></a>
                 </div>
             </div>
         </div>

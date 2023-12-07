@@ -13,8 +13,6 @@
 
 @if(Auth::check())
 
-
-
 <p>USER:{{$user->name . '(' . $user->email . ')'}}</p>
 @else
 <P>※ログインしていません(<a href="/login">ログイン</a>

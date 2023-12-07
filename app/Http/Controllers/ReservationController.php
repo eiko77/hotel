@@ -13,17 +13,22 @@ class ReservationController extends Controller
     public function index(Request $request)
     {
         //下記２行を消すとエラーになるから注意
-        $ReservationItems = Reservation::all();
+        //$ReservationItems = Reservation::all();
+        $user_id = Auth::user();
+        
+      
+        $ReservationItems=Reservation::where('customer_id',$user_id->id)->get();
+     
         return view('reservation.index', ['items' => $ReservationItems]);
 
         //入力後　表示させたい
-        if (isset($request->id)) {
-            $param = ['id' => $request->id];
-            $ReservationItems = DB::select('select * from reservations where id = :id', $param);
-        } else {
-            $ReservationItems = DB::select('select * from reservations');
-        }
-        return view('reservation.index', ['items' => $ReservationItems]);
+        // if (isset($request->id)) {
+        //     $param = ['id' => $request->id];
+        //     $ReservationItems = DB::select('select * from reservations where id = :id', $param);
+        // } else {
+        //     $ReservationItems = DB::select('select * from reservations');
+        // }
+        // return view('reservation.index', ['items' => $ReservationItems]);
 
         // //customerとつなげたい気持ちで記述
         // $hasCustomerItems = Reservation::has('customers')->get();
@@ -41,14 +46,12 @@ class ReservationController extends Controller
         $user=Auth::user();
         $customer=Customer::where('name',$user->name)->first();
         return view('reservation.add',['id'=>$customer->id]);
-        //砂原リーダーの３行
-        //$user=Auth::user();
-        //$customer=Customer::where('name',$user->name)->first();
-        //return view('reservation.add',['id'=>$customer->id]);
+        
     }
 
     public function create(Request $request)
     {
+        
         $this->validate($request, Reservation::$rules);
         $reservation = new Reservation;
         $form = $request->all();
@@ -57,7 +60,18 @@ class ReservationController extends Controller
             $form['note']="";   
         };
         $reservation->fill($form)->save();
-        return redirect('/reservation');
+
+        //ダーッと書く（Reservation_detailにデータを送る処理20231206
+        // $this->validate($request, Reservation::$rules);
+        // $reservation_detail = new Reservation;
+        // $form = $request->all();
+        // unset($form['_token']);
+        // if (is_null($form['note'])) {
+        //     $form['note']="";   
+        // };
+        // $reservation_detail->fill($form)->save();
+        //ダーッと書く_終わり
+        //return redirect('/reservation');
 
     }
 }

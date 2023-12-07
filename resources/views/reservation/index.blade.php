@@ -7,6 +7,10 @@
 @endsection
 
 @section('content')
+{{-- test --}}
+@if(Auth::check())
+
+
 
 <table>
     <th>ご予約ID</th>
@@ -30,6 +34,8 @@
 </tr>
 @endforeach        
 </table>
+{{-- if文終了 --}}
+@endif
 
 @endsection
 

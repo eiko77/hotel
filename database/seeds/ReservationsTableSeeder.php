@@ -14,7 +14,7 @@ class ReservationsTableSeeder extends Seeder
     {
         $param = [
             
-            'customer_id' => '1',
+            'customer_id' => '5',
             'num_customers' => '1',
             'num_rooms' => '1',
             'roomtype_id' => '1',

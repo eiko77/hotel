@@ -66,7 +66,7 @@
             }
 
             img{
-                width: 500px;
+                width: 250px;
             }
             
             .card-text {

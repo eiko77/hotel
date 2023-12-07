@@ -10,9 +10,6 @@ class CustomerController extends Controller
 {
     public function index(Request $request)
     {
-     // 管理者画面からのアクセスならすべて表示
-    
-
 
      // ユーザーがログインしているか確認
      if (Auth::check()) {

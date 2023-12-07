@@ -32,7 +32,7 @@
                         <tr><th>メールアドレス: </th>
                             <td><input type="text" name="mail" value="{{old('mail')}}"></td></tr>
                     <tr><th></th>
-                        <td><input type="submit" value="登録"></td></tr>
+                        <td><input type="submit" value="登録" a href="/" class=reservation/add></td></tr>
         </table>
 </form>
 @endsection
