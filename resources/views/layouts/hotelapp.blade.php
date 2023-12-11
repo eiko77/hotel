@@ -70,12 +70,15 @@
             th{
                 background-color: #c1daae;
                 padding: 10px;
+                width: 100px;
+               
             }
 
             td{
                 border: solid 1px #aaa;
                 padding: 5px 10px;
-                background-color: white
+                background-color: white;
+                width: 120px;
             }
 
             
@@ -92,6 +95,12 @@
                 margin-left: 25px;
                 font-size: 15px;
             }
+
+            .table-bordered  {
+                font-size: 12px;
+            }
+
+            
           
         </style>
     </head>

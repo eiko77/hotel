@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\Reservation;
+use App\Reservation_detail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -62,16 +63,31 @@ class ReservationController extends Controller
         $reservation->fill($form)->save();
 
         //ダーッと書く（Reservation_detailにデータを送る処理20231206
-        // $this->validate($request, Reservation::$rules);
-        // $reservation_detail = new Reservation;
-        // $form = $request->all();
-        // unset($form['_token']);
-        // if (is_null($form['note'])) {
-        //     $form['note']="";   
-        // };
-        // $reservation_detail->fill($form)->save();
+        //$this->validate($request, Reservation::$rules);
+        $reservation_detail = new Reservation_detail();
+        $form = $request->all();
+        //unset($form['_token']);
+        //if (is_null($form['note'])) {
+             //$form['note']="";   
+         //};
+         //$reservation_detail->fill($form)->save();
+     isset($form['_token']);
+         $param = [
+             'reservation_id' => $request->reservation_id,
+             'customer_id' => $request->room_id,
+             'num_customers' => $request->num_customers,
+             'num_rooms' => $request->num_rooms,
+             'roomtype_id' => $request->roomtype_id,
+             'checkin' => $request->checkin,
+             'checkout' => $request->checkout,
+             'note' => $request->note,
+         ];
+
+         DB::table('reservation_details')->insert($param);
+    
         //ダーッと書く_終わり
-        //return redirect('/reservation');
+
+        return redirect('/reservation');
 
     }
 }

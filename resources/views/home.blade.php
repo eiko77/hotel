@@ -21,7 +21,7 @@
                 
             <div class="container2">
             <div class="d-grid gap-2">
-                <a href="customer/add"><button type="button" class="btn btn-success btn-lg display-6"> ホテルのご予約へ</button></a>
+                <a href="reservation/add"><button type="button" class="btn btn-success btn-lg display-6"> ホテルのご予約へ</button></a>
              </div>
           
              <div class="d-grid gap-2">
@@ -29,14 +29,14 @@
                     type="button" class="btn btn-outline-success btn-lg"> ご予約履歴</button></a>
              </div>
 
-             {{-- <div class="d-grid gap-2">
-                <a href="customer/"><button 
-                    type="button" class="btn btn-outline-success btn-lg"> 会員登録内容</button></a>
-             </div> --}}
+             <div class="d-grid gap-2">
+                <a href="reservation_detail/"><button 
+                    type="button" class="btn btn-outline-success btn-lg"> ご予約詳細</button></a>
+             </div> 
              <div class="d-grid gap-2">
                 
              <a href="customer/add"><button 
-                type="button" class="btn btn-success btn-lg">新規会員登録</button></a>
+                type="button" class="btn btn-success btn-lg">会員登録確認・変更</button></a>
              </div>
 
             </div>
