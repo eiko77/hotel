@@ -52,6 +52,11 @@
     .logo img {
             width: 150px;  
             }
+
+     .btn{
+                width: 130px;
+                height: 70px;
+            }
     
 </style>
 
