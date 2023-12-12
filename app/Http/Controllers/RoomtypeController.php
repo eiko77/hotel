@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Roomtype;
+use App\Reservation;
+use App\Reservation_detail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RoomtypeController extends Controller
 {

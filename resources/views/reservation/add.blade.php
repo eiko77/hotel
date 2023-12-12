@@ -20,7 +20,7 @@
     <p>{{ $item->customers->name }}</p> --}}
     <form action="/reservation/add" method="post">
         <table>
-            <table>
+            <table class="table1">
                 @csrf
 
                 <input type="hidden" name="customer_id" value="{{$id}}">

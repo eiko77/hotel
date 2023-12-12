@@ -42,11 +42,7 @@
         <td>{{$items->rooms->room_no}}号室</td>
     </tr>
     <tr>
-         <th>ご宿泊料金</th> <td>{{$items->hotel_fee}}円/税抜</td>
-         <th>その他の料金</th>  <td>{{$items->other_charge}}円/税抜</td><th>内訳詳細</th><td>{{$items->details}}</td>
-    </tr>    
-<tr><th>ご請求料金</th> <td >計  {{$items->total_amount}}円</td>
-    <th>内消費税</th> <td>{{$items->tax}}円　［消費税率　10%］</td>
+         <th>ご宿泊料金</th> <td>{{$items->hotel_fee}}円/税込</td>
 </tr>
 <hr>
 @endforeach              

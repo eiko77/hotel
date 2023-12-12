@@ -42,6 +42,8 @@ Route::post('reservation','ReservationController@post');
 Route::get('reservation/add','ReservationController@add');
 Route::post('reservation/add','ReservationController@create');
 
+
+
 //Index_予約詳細
 Route::get('reservation_detail','Reservation_detailController@index');
 Route::post('reservation_detail','Reservation_detailController@post');

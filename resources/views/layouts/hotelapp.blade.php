@@ -53,6 +53,7 @@
             }
             .card-body {
                 font-size: 15px;
+            
                 
             }
             .footer {
@@ -70,7 +71,7 @@
             th{
                 background-color: #c1daae;
                 padding: 10px;
-                width: 100px;
+                width: 50px;
                
             }
 
@@ -78,7 +79,7 @@
                 border: solid 1px #aaa;
                 padding: 5px 10px;
                 background-color: white;
-                width: 120px;
+                width: 200px;
             }
 
             
@@ -98,6 +99,16 @@
 
             .table-bordered  {
                 font-size: 12px;
+            }
+
+            .table2 {
+                width: 1000px;
+                height: 100px;
+            }
+
+            .table1 {
+                width: 600px;
+                height: 100px;
             }
 
             

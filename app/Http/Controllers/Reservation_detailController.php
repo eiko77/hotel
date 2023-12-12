@@ -3,9 +3,8 @@ namespace App\Http\Controllers;
 
 use App\Reservation;
 use App\Reservation_detail;
-//use App\Reservation;
-//use App\Roomtype;
-
+use App\Roomtype;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 

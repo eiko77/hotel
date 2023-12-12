@@ -66,12 +66,14 @@ public function reservation_details()
     return $this->hasMany('App\Reservation_detail', 'reservation_id', 'id');
 }
 
-// public function reservation_detailsData()
-// {
-//     return $this->id . 
-//     $this->room_type .  
-//     $this->room_price .  
-//     $this->possible_num ;
-// }
+public function reservation_detailsData()
+{
+    return $this->id . 
+    $this->reservation_id . 
+    $this->room_id .  
+    $this->checkin ;
+    $this->hotel_fee;
+    
+}
 
 }

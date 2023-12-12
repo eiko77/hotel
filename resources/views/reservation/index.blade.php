@@ -12,7 +12,7 @@
 
 
 
-<table>
+<table class="table2">
     <th>ご予約ID</th>
     <th>お客様名</th>
     <th>ご予約人数</th>

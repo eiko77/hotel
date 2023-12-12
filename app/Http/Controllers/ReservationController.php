@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\Reservation;
 use App\Reservation_detail;
+use App\Roomtype;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -22,24 +23,6 @@ class ReservationController extends Controller
      
         return view('reservation.index', ['items' => $ReservationItems]);
 
-        //入力後　表示させたい
-        // if (isset($request->id)) {
-        //     $param = ['id' => $request->id];
-        //     $ReservationItems = DB::select('select * from reservations where id = :id', $param);
-        // } else {
-        //     $ReservationItems = DB::select('select * from reservations');
-        // }
-        // return view('reservation.index', ['items' => $ReservationItems]);
-
-        // //customerとつなげたい気持ちで記述
-        // $hasCustomerItems = Reservation::has('customers')->get();
-        // $param = ['customer_items' => $hasCustomerItems];
-        // return view('reservation.index', $param);
-
-        // //roomtypeとつなげたい気持ちで記述
-        // $hasRoomtypeItems = Reservation::has('roomtypes')->get();
-        // $param = ['roomtype_items' => $hasRoomtypeItems];
-        // return view('reservation.index', $param);
     }
 
     public function add(Request $request)
@@ -55,42 +38,70 @@ class ReservationController extends Controller
         
         $this->validate($request, Reservation::$rules);
         $reservation = new Reservation;
+        $reservation_detail = new Reservation_detail;
         $form = $request->all();
         unset($form['_token']);
+
         if (is_null($form['note'])) {
             $form['note']="";   
         };
-        $reservation->fill($form)->save();
+       //多対多
+        //$form_reservation =$form['id','cutomer_id','num_customers','num_rooms','roomtype_id','checkin','checkout','note'];
+        //$form_detail =$form['id','reservation_id','room_id','roomtype_id'];
+
+        $reservation->fill($form)->save(); 
+        //$reservation_detail->fill($form_detail)->save(); 
+     
+        return redirect('/reservation');
+    }
+
+   
+}
 
         //ダーッと書く（Reservation_detailにデータを送る処理20231206
-        //$this->validate($request, Reservation::$rules);
-        $reservation_detail = new Reservation_detail();
-        $form = $request->all();
+     
+        // $this->validate($request, Reservation_detail::$rules);
+        // $reservation_detail = new Reservation_detail;
+        // $form = $request->all();
+        // unset($form['_token']);
+        // if (is_null($form['note'])) {
+        //     $form['note']="";   
+        // };
+        // $reservation_detail->fill($form)->save();
+//入力後　表示させたい
+   //$this->validate($request, Reservation::$rules);
+   
+        //if (isset($request->id)) {
+        //$param = ['id' => $request->id];
+       
+        // } else {
+        //     $ReservationItems = DB::select('select * from reservations');
+        // }
+        // return view('reservation.index', ['items' => $ReservationItems]);
+
+        
+        //$form = $request->all();
         //unset($form['_token']);
         //if (is_null($form['note'])) {
              //$form['note']="";   
          //};
          //$reservation_detail->fill($form)->save();
-     isset($form['_token']);
-         $param = [
-             'reservation_id' => $request->reservation_id,
-             'customer_id' => $request->room_id,
-             'num_customers' => $request->num_customers,
-             'num_rooms' => $request->num_rooms,
-             'roomtype_id' => $request->roomtype_id,
-             'checkin' => $request->checkin,
-             'checkout' => $request->checkout,
-             'note' => $request->note,
-         ];
+    //  isset($form['_token']);
+    //      $param = [
+    //          'reservation_id' => $request->reservation_id,
+    //          'customer_id' => $request->room_id,
+    //          'num_customers' => $request->num_customers,
+    //          'num_rooms' => $request->num_rooms,
+    //          'roomtype_id' => $request->roomtype_id,
+    //          'checkin' => $request->checkin,
+    //          'checkout' => $request->checkout,
+    //          'note' => $request->note,
+    //      ];
 
-         DB::table('reservation_details')->insert($param);
+    //      DB::table('reservation_details')->insert($param);
     
         //ダーッと書く_終わり
 
-        return redirect('/reservation');
-
-    }
-}
         // //ここから試し
         // isset($form['_token']);
         // $param = [

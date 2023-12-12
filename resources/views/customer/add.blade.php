@@ -20,7 +20,7 @@
 </div>
 @endif
 <form action="/customer/add" method="post">
-    <table>
+    <table class="table1">
         @csrf
             <tr><th>お名前: </th>
                 <td><input type="text" name="name" value="{{old('name')}}"></td></tr>

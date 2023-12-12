@@ -17,12 +17,7 @@ class CreateReservationDetailsTable extends Migration
             $table->increments('id');
             $table->integer('reservation_id');
             $table->integer('room_id');
-            $table->integer('roomtype_id');
             $table->integer('hotel_fee');
-            $table->integer('other_charge');
-            $table->integer('tax');
-            $table->integer('total_amount');
-            $table->string('details');
             $table->timestamps();
         });
     }
